@@ -19,6 +19,7 @@ map("n", "N", "Nzzzv")
 vim.keymap.del("n", "<Space>dpp")
 vim.keymap.del("n", "<Space>dps")
 vim.keymap.del("n", "<Space>dph")
+vim.keymap.del("n", "<leader>l")
 map("n", "<leader>e", vim.diagnostic.open_float)
 map("n", "<leader>qu", vim.cmd.Ex, { desc = "Write and Exit to Explorer" })
 
@@ -77,3 +78,7 @@ end)
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 map("t", "<Esc><Esc>", "<C-\\><C-n>:q<CR>", { desc = "Exit terminal mode" })
+map("n", "<leader>lg", function()
+  local snacks = Snacks
+  snacks.lazygit.open()
+end)
