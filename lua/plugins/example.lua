@@ -12,6 +12,7 @@ return {
   -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
 
+  -- { "HUAHUAI23/nvim-quietlight" },
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",

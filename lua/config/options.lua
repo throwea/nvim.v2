@@ -19,3 +19,5 @@ vim.filetype.add({
     http = "http",
   },
 })
+
+vim.o.background = "dark"

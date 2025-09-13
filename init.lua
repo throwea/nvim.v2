@@ -34,4 +34,6 @@
 -- package/plugin management https://www.youtube.com/watch?v=-ybCiHPWKNA&t=1557s 
 -- ]]
 -- bootstrap lazy.nvim, LazyVim and your plugins
+--
 require("config.lazy")
+
