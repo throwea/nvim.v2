@@ -1,2 +1,37 @@
+--[[ TODO
+-- fzf lua for telescope
+-- Find way to turn off LSP. At least turn off Golang LSP
+-- Install quiet light theme for neovim
+-- Refine my neovim setup for react. The formatting is messed up and I need to get better suggestions, typechecks, etc
+-- Create directory for my secrets and establish a symlink from config file to actual secret
+-- Start scripting in bash. Make utility scripts. It takes way too long to get my applications set up the way I want them
+-- Change theme
+-- Add function folding and collapsing https://www.jmaguire.tech/posts/treesitter_folding/
+-- Disable dapui console in the debugger. It's not doing anything
+-- Add a bash function which pip installs and saves to requirements.txt in venv file
+-- Fix readme file parsing. I always get errors when trying to open README files
+-- Find way to list all of the breakpoints. Might be able to use quickfix list
+-- install neorg for better notetaking
+-- Find way to trigger nvim when searching for directories through Fzf. Maybe set a keybind which triggers fzf dir finder then immediately triggers nvim with the result. Check this out: https://github.com/junegunn/fzf?tab=readme-ov-file#turning-into-a-different-process
+-- find way to get inlay hints working when in insert mode
+-- get a jupyter notebook alternative installed through neovim
+-- use vim be good and practice
+--    - Get better at relative line jumps
+--    - Improve on forward and backward jumps
+-- create a bash script that will completely install all the dev dependencies needed to get started
+--  - need to figure out how to deal with git submodules and worktrees
+--  - create something like from folke -> https://github.com/folke/dot/tree/master/nvim
+--  - add .txt file explaining everything I need to do to get everything up and running
+--  - create a gitrepo around my config
+--  - find a way to include .zshrc, .tmux.conf and neovim config entirely inside a git repo so it can be version controlled
+--  - create bash script which installs all dev dependencies via homebrew
+--  - add executable script which will isntall all the dependencies I need to get started
+-- find helpful keymaps for lsp. Especially one which jumps forward and backwards to different funcitons
+-- Learn basic syntax of lua
+------ deubgging lua files https://zignar.net/2023/06/10/debugging-lua-in-neovim/
+-- create keymapping which shows a UI listing all of the git hunks that have not been stage
+-- https://www.youtube.com/watch?v=-ybCiHPWKNA 1:00:00
+-- package/plugin management https://www.youtube.com/watch?v=-ybCiHPWKNA&t=1557s 
+-- ]]
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
