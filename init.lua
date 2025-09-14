@@ -11,7 +11,6 @@
 -- Find way to list all of the breakpoints. Might be able to use quickfix list
 -- install neorg for better notetaking
 -- Find way to trigger nvim when searching for directories through Fzf. Maybe set a keybind which triggers fzf dir finder then immediately triggers nvim with the result. Check this out: https://github.com/junegunn/fzf?tab=readme-ov-file#turning-into-a-different-process
--- find way to get inlay hints working when in insert mode
 -- get a jupyter notebook alternative installed through neovim
 -- use vim be good and practice
 --    - Get better at relative line jumps
@@ -24,14 +23,17 @@
 --  - find a way to include .zshrc, .tmux.conf and neovim config entirely inside a git repo so it can be version controlled
 --  - create bash script which installs all dev dependencies via homebrew
 --  - add executable script which will isntall all the dependencies I need to get started
--- find helpful keymaps for lsp. Especially one which jumps forward and backwards to different funcitons
+-- find helpful keymaps for lsp. Especially one which jumps forward and backwards to different funcitons --> can use <leader>ss
 -- Learn basic syntax of lua
 ------ deubgging lua files https://zignar.net/2023/06/10/debugging-lua-in-neovim/
 -- create keymapping which shows a UI listing all of the git hunks that have not been stage
 -- https://www.youtube.com/watch?v=-ybCiHPWKNA 1:00:00
 -- package/plugin management https://www.youtube.com/watch?v=-ybCiHPWKNA&t=1557s 
--- Fix my color theme
+-- Make the file tree toggle-able with backslach
 -- ]]
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
+-- NOTE:
+--  - if tests aren't discoverable make sure to run :TSInstall <language>
+--  - golang debugger doesn't work with 1.25
 require("config.lazy")
