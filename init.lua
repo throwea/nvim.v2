@@ -34,6 +34,9 @@
 --  - golang debug tests -> Good
 --  - python -> Good
 --  - http files -> Good
+-- go to definition doens't work. Need to fix
+-- golang formatting looks completely wrong. Should be tabs
+-- lazy git is busted. Just use as plugin like I did in old config
 -- ]]
 
 -- bootstrap lazy.nvim, LazyVim and your plugins

@@ -15,6 +15,7 @@ vim.opt.timeoutlen = 300
 -- NOTE: comment if this causes issues
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
+-- vim.o.shift
 vim.filetype.add({
   extension = {
     http = "http",

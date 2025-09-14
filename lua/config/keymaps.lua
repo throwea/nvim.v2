@@ -34,21 +34,21 @@ map("n", "<leader>gmp", function()
   print("Copied Mason packages to clipboard")
 end, { desc = "[G]et all [M]ason [P]ackages" })
 
-map("n", "<leader>post", function()
-  local request = {
-    "###",
-    "POST http://localhost:8080",
-    "accept: application/json",
-    "content-type: application/json",
-    "authorization: bearer <token>",
-    "\n{",
-    '\t"param1": "test1"',
-    "}",
-  }
-  -- vim.fn.setreg('+', request)
-  local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
-  vim.fn.append(r, request)
-end)
+-- map("n", "<leader>post", function()
+--   local request = {
+--     "###",
+--     "POST http://localhost:8080",
+--     "accept: application/json",
+--     "content-type: application/json",
+--     "authorization: bearer <token>",
+--     "\n{",
+--     '\t"param1": "test1"',
+--     "}",
+--   }
+--   -- vim.fn.setreg('+', request)
+--   local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
+--   vim.fn.append(r, request)
+-- end)
 
 map("n", "<leader>get", function()
   --local request = '###\nGET http://localhost:8080/{endpoint}'
