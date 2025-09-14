@@ -20,8 +20,10 @@ vim.keymap.del("n", "<Space>dpp")
 vim.keymap.del("n", "<Space>dps")
 vim.keymap.del("n", "<Space>dph")
 vim.keymap.del("n", "<leader>l")
+vim.keymap.del("n", "<leader>E")
 map("n", "<leader>e", vim.diagnostic.open_float)
 map("n", "<leader>qu", vim.cmd.Ex, { desc = "Write and Exit to Explorer" })
+map("n", "\\", Snacks.explorer.reveal, { desc = "Write and Exit to Explorer" })
 
 -- MISCELLANEOUS KEYBINDINGS
 map("n", "<leader>gmp", function()
