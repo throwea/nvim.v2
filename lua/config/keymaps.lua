@@ -79,6 +79,5 @@ end)
 -- or just use <C-\><C-n> to exit terminal mode
 map("t", "<Esc><Esc>", "<C-\\><C-n>:q<CR>", { desc = "Exit terminal mode" })
 map("n", "<leader>lg", function()
-  local snacks = Snacks
-  snacks.lazygit.open()
+  Snacks.lazygit.open()
 end)

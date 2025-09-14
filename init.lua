@@ -32,7 +32,8 @@
 -- create keymapping which shows a UI listing all of the git hunks that have not been stage
 -- https://www.youtube.com/watch?v=-ybCiHPWKNA 1:00:00
 -- package/plugin management https://www.youtube.com/watch?v=-ybCiHPWKNA&t=1557s 
--- ]]
--- bootstrap lazy.nvim, LazyVim and your plugins
 -- Fix my color theme
+-- ]]
+
+-- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
