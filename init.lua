@@ -34,6 +34,7 @@
 -- ]]
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
+-- Format on save is broken for python files
 -- NOTE:
 --  - if tests aren't discoverable make sure to run :TSInstall <language>
 --  - golang debugger doesn't work with 1.25

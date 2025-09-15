@@ -16,5 +16,16 @@ return {
 		opts = {
 			-- See Configuration section for options
 		},
+		keys = {
+			{ "<leader>zc", "<cmd>CopilotChat<cr>",        mode = "n", desc = "Open Copilot Chat" },
+			{ "<leader>ze", "<cmd>CopilotChatExplain<cr>", mode = "v", desc = "Explain Code" },
+			{ "<leader>zr", "<cmd>CopilotChatExplain<cr>", mode = "v", desc = "Review Code" },
+			{ "<leader>zf", "<cmd>CopilotChatExplain<cr>", mode = "v", desc = "Fix Code issues" },
+			{ "<leader>zo", "<cmd>CopilotChatExplain<cr>", mode = "v", desc = "Optimize Code" },
+			{ "<leader>zd", "<cmd>CopilotChatExplain<cr>", mode = "v", desc = "Generate Docs" },
+			{ "<leader>zt", "<cmd>CopilotChatExplain<cr>", mode = "v", desc = "Generate Tests" },
+			{ "<leader>zm", "<cmd>CopilotChatExplain<cr>", mode = "n", desc = "Generate Commit Message" },
+			{ "<leader>zs", "<cmd>CopilotChatExplain<cr>", mode = "v", desc = "Generate Commit for Selection" },
+		},
 	},
 }
