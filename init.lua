@@ -28,15 +28,9 @@
 ------ deubgging lua files https://zignar.net/2023/06/10/debugging-lua-in-neovim/
 -- create keymapping which shows a UI listing all of the git hunks that have not been stage
 -- https://www.youtube.com/watch?v=-ybCiHPWKNA 1:00:00
--- package/plugin management https://www.youtube.com/watch?v=-ybCiHPWKNA&t=1557s 
--- Tests ran
---  - golang debugger -> GOOD
---  - golang debug tests -> Good
---  - python -> Good
---  - http files -> Good
--- go to definition doens't work. Need to fix
--- golang formatting looks completely wrong. Should be tabs
+-- package/plugin management https://www.youtube.com/watch?v=-ybCiHPWKNA&t=1557s
 -- lazy git is busted. Just use as plugin like I did in old config
+-- Python formatting doesn't work on save, need to fix this
 -- ]]
 
 -- bootstrap lazy.nvim, LazyVim and your plugins

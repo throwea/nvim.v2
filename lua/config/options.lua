@@ -15,6 +15,11 @@ vim.opt.timeoutlen = 300
 -- NOTE: comment if this causes issues
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
+--TODO: move to ~/.config/nvim/after/ftplugin/go.lua
+vim.opt_local.shiftwidth = 4
+vim.opt_local.tabstop = 4
+vim.opt_local.expandtab = false
+
 -- vim.o.shift
 vim.filetype.add({
   extension = {

@@ -12,6 +12,17 @@ return { -- Autoformat
       desc = "[F]ormat buffer",
     },
   },
+  init = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "go",
+      callback = function()
+        vim.opt_local.expandtab = false -- use real tabs
+        vim.opt_local.tabstop = 4       -- visual width of a tab
+        vim.opt_local.shiftwidth = 4    -- >> and autoindent = 1 tab
+        vim.opt_local.softtabstop = 4
+      end,
+    })
+  end,
   opts = {
     notify_on_error = false,
     -- format_on_save = function(bufnr)
@@ -32,9 +43,9 @@ return { -- Autoformat
     -- end,
     formatters_by_ft = {
       lua = { "stylua" },
-      go = { "gofmt", "goimports", "gofumpt" },
+      go = { "goimports", "gofumpt" },
       -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
+      python = { "isort", "black" },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
