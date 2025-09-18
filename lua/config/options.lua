@@ -12,6 +12,7 @@ vim.opt.updatetime = 250
 -- Displays which-key popup sooner
 vim.opt.timeoutlen = 300
 
+vim.g.have_nerd_font = true
 -- NOTE: comment if this causes issues
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 

@@ -31,6 +31,7 @@
 -- package/plugin management https://www.youtube.com/watch?v=-ybCiHPWKNA&t=1557s
 -- lazy git is busted. Just use as plugin like I did in old config
 -- Python formatting doesn't work on save, need to fix this
+-- extend the github command in command line and have it except pull request numbers to save me some clicks
 -- ]]
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
@@ -38,4 +39,7 @@
 -- NOTE:
 --  - if tests aren't discoverable make sure to run :TSInstall <language>
 --  - golang debugger doesn't work with 1.25
+--  - If you need to update plugins comment out the copilot
+--  - change fonts in iterm https://www.nerdfonts.com/font-downloads
+
 require("config.lazy")
