@@ -32,6 +32,8 @@
 -- lazy git is busted. Just use as plugin like I did in old config
 -- Python formatting doesn't work on save, need to fix this
 -- extend the github command in command line and have it except pull request numbers to save me some clicks
+-- Need formatting for .tmpl and vars fileshttps://gecgithub01.walmart.com/SRE/production-playbooks/pull/48702
+-- Need to learn how to use copilot more effectively. Still kinda slow with it
 -- ]]
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
