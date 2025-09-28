@@ -34,6 +34,8 @@
 -- extend the github command in command line and have it except pull request numbers to save me some clicks
 -- Need formatting for .tmpl and vars fileshttps://gecgithub01.walmart.com/SRE/production-playbooks/pull/48702
 -- Need to learn how to use copilot more effectively. Still kinda slow with it
+-- Disable warnings from LSP. Especially in Readme files
+-- Find a way to automatically set dev proxy when I start tmux
 -- ]]
 
 -- bootstrap lazy.nvim, LazyVim and your plugins

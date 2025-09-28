@@ -14,6 +14,7 @@ return {
 
       {
         "fredrikaverpil/neotest-golang",
+        version = "*",
         dependencies = {
           {
             "leoluz/nvim-dap-go",
@@ -33,6 +34,7 @@ return {
         },
         testify_enabled = true,
         runner = "gotestsum",
+        warn_test_name_dupes = false,
       }
       opts.adapters["neotest-python"] = {}
     end,
