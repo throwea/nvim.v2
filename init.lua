@@ -34,12 +34,14 @@
 -- extend the github command in command line and have it except pull request numbers to save me some clicks
 -- Need formatting for .tmpl and vars fileshttps://gecgithub01.walmart.com/SRE/production-playbooks/pull/48702
 -- Need to learn how to use copilot more effectively. Still kinda slow with it
--- Disable warnings from LSP. Especially in Readme files
--- Find a way to automatically set dev proxy when I start tmux
--- Make stack trace links to files open neovim file instead of vscode
+-- Make stack trace links to files open neovim file instead of vscode -> DONE. Go to iterm2 -> profiles -> advanced -> semantic history -> Run coprocess $echo nvim \1:\2 -> This will make stack trace links open in neovim
+-- Make netrw open instead of lazy distro on startup
 -- Nerd fonts collection https://www.nerdfonts.com/font-downloads
+-- Add a symlink for my work .zshrc so I have a copy. I did some cool stuff in it
 --
 -- DONE:
+-- Disable warnings from LSP. Especially in Readme files -> Can use leader<ud>
+-- Find a way to automatically set dev proxy when I start tmux -> DONE. Don't need this. Can just make an alias that sets the proxy before hand. Works perfectly across tmux panes
 --  Copilot running on personal and work machines
 --  Get nerd font and symbols on my mac
 -- ]]
