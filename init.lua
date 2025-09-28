@@ -1,13 +1,11 @@
 --[[ TODO
 -- Find way to turn off LSP. At least turn off Golang LSP
--- Install quiet light theme for neovim
 -- Refine my neovim setup for react. The formatting is messed up and I need to get better suggestions, typechecks, etc
 -- Create directory for my secrets and establish a symlink from config file to actual secret
 -- Start scripting in bash. Make utility scripts. It takes way too long to get my applications set up the way I want them
 -- Add function folding and collapsing https://www.jmaguire.tech/posts/treesitter_folding/
 -- Disable dapui console in the debugger. It's not doing anything
 -- Add a bash function which pip installs and saves to requirements.txt in venv file
--- Fix readme file parsing. I always get errors when trying to open README files
 -- Find way to list all of the breakpoints. Might be able to use quickfix list
 -- install neorg for better notetaking
 -- Find way to trigger nvim when searching for directories through Fzf. Maybe set a keybind which triggers fzf dir finder then immediately triggers nvim with the result. Check this out: https://github.com/junegunn/fzf?tab=readme-ov-file#turning-into-a-different-process
@@ -26,24 +24,26 @@
 -- find helpful keymaps for lsp. Especially one which jumps forward and backwards to different funcitons --> can use <leader>ss
 -- Learn basic syntax of lua
 ------ deubgging lua files https://zignar.net/2023/06/10/debugging-lua-in-neovim/
--- create keymapping which shows a UI listing all of the git hunks that have not been stage
 -- https://www.youtube.com/watch?v=-ybCiHPWKNA 1:00:00
 -- package/plugin management https://www.youtube.com/watch?v=-ybCiHPWKNA&t=1557s
 -- lazy git is busted. Just use as plugin like I did in old config
--- Python formatting doesn't work on save, need to fix this
 -- extend the github command in command line and have it except pull request numbers to save me some clicks
 -- Need formatting for .tmpl and vars fileshttps://gecgithub01.walmart.com/SRE/production-playbooks/pull/48702
 -- Need to learn how to use copilot more effectively. Still kinda slow with it
--- Make stack trace links to files open neovim file instead of vscode -> DONE. Go to iterm2 -> profiles -> advanced -> semantic history -> Run coprocess $echo nvim \1:\2 -> This will make stack trace links open in neovim
+--    - See how I can get agent mode working in codecompanion if it's even setup
 -- Make netrw open instead of lazy distro on startup
 -- Nerd fonts collection https://www.nerdfonts.com/font-downloads
 -- Add a symlink for my work .zshrc so I have a copy. I did some cool stuff in it
 --
 -- DONE:
+-- Fix readme file parsing. I always get errors when trying to open README files -> DONE
+-- Python formatting doesn't work on save, need to fix this -> DONE
+-- Make stack trace links to files open neovim file instead of vscode -> DONE. Go to iterm2 -> profiles -> advanced -> semantic history -> Run coprocess $echo nvim \1:\2 -> This will make stack trace links open in neovim
 -- Disable warnings from LSP. Especially in Readme files -> Can use leader<ud>
 -- Find a way to automatically set dev proxy when I start tmux -> DONE. Don't need this. Can just make an alias that sets the proxy before hand. Works perfectly across tmux panes
 --  Copilot running on personal and work machines
 --  Get nerd font and symbols on my mac
+-- create keymapping which shows a UI listing all of the git hunks that have not been stage -> DONE. <leader>gd
 -- ]]
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
