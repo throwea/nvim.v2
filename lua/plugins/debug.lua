@@ -136,6 +136,15 @@ return {
       jinja = true,
       cwd = "${workspaceFolder}",
     })
+    table.insert(require("dap").configurations.python, {
+      name = "Python Debugger: main.py with args",
+      type = "python",
+      request = "launch",
+      program = "${workspaceFolder}/main.py",
+      args = { "-t", "istio", "-a", "update", "-o", "normal", "-s", "2025-09-29 06:00", "-e", "12", "-d", "20k" },
+      pythonPath = "/Users/e0a09hp/Development/one-click-suite/ocs-scripts/venv/bin/python",
+      cwd = "${workspaceFolder}",
+    })
     --NOTE: Don't forget to activate your venv and this will work just fine
     table.insert(require("dap").configurations.python, {
       name = "Python Debugger: Current File",
