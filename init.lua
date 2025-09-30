@@ -36,6 +36,12 @@
 -- Need to learn how to use copilot more effectively. Still kinda slow with it
 -- Disable warnings from LSP. Especially in Readme files
 -- Find a way to automatically set dev proxy when I start tmux
+-- Make stack trace links to files open neovim file instead of vscode
+-- Nerd fonts collection https://www.nerdfonts.com/font-downloads
+--
+-- DONE:
+--  Copilot running on personal and work machines
+--  Get nerd font and symbols on my mac
 -- ]]
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
