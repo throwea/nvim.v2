@@ -5,12 +5,12 @@ return {
     "nvim-lua/plenary.nvim",
   },
   opts = {
-    -- NOTE: The log_level is in `opts.opts`
-    opts = {
-      log_level = "DEBUG",
-      http_proxy = vim.env.HTTP_PROXY,
-      https_proxy = vim.env.HTTPS_PROXY,
-    },
+    -- -- NOTE: The log_level is in `opts.opts`
+    -- opts = {
+    --   log_level = "DEBUG",
+    --   http_proxy = vim.env.HTTP_PROXY,
+    --   https_proxy = vim.env.HTTPS_PROXY,
+    -- },
   },
 }
 
