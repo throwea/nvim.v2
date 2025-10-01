@@ -36,7 +36,7 @@
 -- Add a symlink for my work .zshrc so I have a copy. I did some cool stuff in it
 --
 -- DONE:
--- Fix readme file parsing. I always get errors when trying to open README files -> DONE
+-- Fix readme file parsing. I always get errors when trying to open README files -> DONE. Also utilize :MarkdownPreview to render the markdowen in realtime
 -- Python formatting doesn't work on save, need to fix this -> DONE
 -- Make stack trace links to files open neovim file instead of vscode -> DONE. Go to iterm2 -> profiles -> advanced -> semantic history -> Run coprocess $echo nvim \1:\2 -> This will make stack trace links open in neovim
 -- Disable warnings from LSP. Especially in Readme files -> Can use leader<ud>

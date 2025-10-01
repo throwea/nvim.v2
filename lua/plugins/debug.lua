@@ -137,14 +137,31 @@ return {
       cwd = "${workspaceFolder}",
     })
     table.insert(require("dap").configurations.python, {
-      name = "Python Debugger: main.py with args",
-      type = "python",
+      name = "Python Debugger: Centralized Scaling ISTIO - Normal",
+      type = "debugpy",
       request = "launch",
-      program = "${workspaceFolder}/main.py",
+      program = "${workspaceFolder}/centralized-scaling/main.py",
+      pythonPath = "${workspaceFolder}/venv/bin/python",
       args = { "-t", "istio", "-a", "update", "-o", "normal", "-s", "2025-09-29 06:00", "-e", "12", "-d", "20k" },
-      pythonPath = "/Users/e0a09hp/Development/one-click-suite/ocs-scripts/venv/bin/python",
       cwd = "${workspaceFolder}",
     })
+    -- table.insert(require("dap").configurations.python, {
+    --   type = "python",
+    --   request = "launch",
+    --   name = "Launch file with args",
+    --   program = "${file}",
+    --   pythonPath = function()
+    --     -- Use a virtual environment if available
+    --     local cwd = vim.fn.getcwd()
+    --     if vim.fn.executable(cwd .. "/.venv/bin/python") then
+    --       return cwd .. "/.venv/bin/python"
+    --     elseif vim.fn.executable(cwd .. "/venv/bin/python") then
+    --       return cwd .. "/venv/bin/python"
+    --     end
+    --     return "python"
+    --   end,
+    --   args = { "arg1", "arg2", "--option", "value" }, -- Your command-line arguments
+    -- })
     --NOTE: Don't forget to activate your venv and this will work just fine
     table.insert(require("dap").configurations.python, {
       name = "Python Debugger: Current File",
