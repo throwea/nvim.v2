@@ -1,5 +1,4 @@
 --[[ TODO
--- Find way to turn off LSP. At least turn off Golang LSP
 -- Refine my neovim setup for react. The formatting is messed up and I need to get better suggestions, typechecks, etc
 -- Create directory for my secrets and establish a symlink from config file to actual secret
 -- Start scripting in bash. Make utility scripts. It takes way too long to get my applications set up the way I want them
@@ -26,32 +25,34 @@
 ------ deubgging lua files https://zignar.net/2023/06/10/debugging-lua-in-neovim/
 -- https://www.youtube.com/watch?v=-ybCiHPWKNA 1:00:00
 -- package/plugin management https://www.youtube.com/watch?v=-ybCiHPWKNA&t=1557s
--- lazy git is busted. Just use as plugin like I did in old config
 -- extend the github command in command line and have it except pull request numbers to save me some clicks
--- Need formatting for .tmpl and vars fileshttps://gecgithub01.walmart.com/SRE/production-playbooks/pull/48702
+-- Need formatting for .tmpl and vars files https://gecgithub01.walmart.com/SRE/production-playbooks/pull/48702
 -- Need to learn how to use copilot more effectively. Still kinda slow with it
 --    - See how I can get agent mode working in codecompanion if it's even setup
 -- Make netrw open instead of lazy distro on startup
 -- Nerd fonts collection https://www.nerdfonts.com/font-downloads
 -- Add a symlink for my work .zshrc so I have a copy. I did some cool stuff in it
+--  - Make work (walmart), personal branch as well
 --
 -- DONE:
 -- Fix readme file parsing. I always get errors when trying to open README files -> DONE. Also utilize :MarkdownPreview to render the markdowen in realtime
 -- Python formatting doesn't work on save, need to fix this -> DONE
 -- Make stack trace links to files open neovim file instead of vscode -> DONE. Go to iterm2 -> profiles -> advanced -> semantic history -> Run coprocess $echo nvim \1:\2 -> This will make stack trace links open in neovim
+-- LazyGit is busted. Just use as plugin like I did in old config -> DONE. Updated keymap as well
 -- Disable warnings from LSP. Especially in Readme files -> Can use leader<ud>
 -- Find a way to automatically set dev proxy when I start tmux -> DONE. Don't need this. Can just make an alias that sets the proxy before hand. Works perfectly across tmux panes
---  Copilot running on personal and work machines
+--  Copilot running on personal and work machines -> DONE
 --  Get nerd font and symbols on my mac
 -- create keymapping which shows a UI listing all of the git hunks that have not been stage -> DONE. <leader>gd
+-- Format on save is broken for python files -> DONE. Fixed
+-- Find way to turn off LSP. At least turn off Golang LSP -> DONE. Use :LspStop
 -- ]]
 
--- bootstrap lazy.nvim, LazyVim and your plugins
--- Format on save is broken for python files
 -- NOTE:
 --  - if tests aren't discoverable make sure to run :TSInstall <language>
 --  - golang debugger doesn't work with 1.25
 --  - If you need to update plugins comment out the copilot
 --  - change fonts in iterm https://www.nerdfonts.com/font-downloads
 
+-- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
