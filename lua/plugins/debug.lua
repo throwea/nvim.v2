@@ -144,6 +144,79 @@ return {
       module = "${file}",
       cwd = "${workspaceFolder}",
     })
+    --NOTE: run current file with command line args
+    local args_history_file = vim.fn.stdpath("data") .. "/dap_python_args_history.txt"
+    local function load_args_history()
+      local lines = {}
+      local f = io.open(args_history_file, "r") -- f is of type (file*?) basically a pointer to a file (*) and can be nil (?)
+      if not f then
+        f = io.open(args_history_file, "w")
+        -- If we fail again, then we need to notify and log
+        if not f then
+          vim.notify("Failed to create args file: " .. args_history_file, vim.log.levels.ERROR)
+          return
+        end
+      end
+      if f then
+        for line in f:lines() do
+          if line ~= "" then
+            table.insert(lines, line)
+          end
+        end
+        f:close()
+      end
+      return lines
+    end
+
+    -- TODO: dedup entries
+    local function save_args_history(history)
+      local f = io.open(args_history_file, "w")
+      if not f then
+        vim.notify("failed to open file for writing: " .. args_history_file, vim.log.level.ERROR)
+        return
+      end
+      local commandMap = {}
+      for _, line in pairs(history) do
+        commandMap[line] = true
+      end
+      if commandMap then -- NOTE: similar syntax to python. if <obj> then do something will check for nil-ness
+        for _, line in ipairs(history) do
+          f:write(line .. "\n")
+        end
+        f:close()
+      end
+    end
+
+    local function get_args()
+      local history = load_args_history()
+      local choices = vim.deepcopy(history) -- TODO: why are we doing deepcopy here?
+      table.insert(choices, "Enter new args")
+      local choice = vim.fn.inputlist(choices)
+      local args_string
+      if choice > 0 and choice <= #history then
+        args_string = history[choice]
+      else
+        args_string = vim.fn.input("Args: ")
+        if args_string ~= "" and not vim.tbl_contains(history, args_string) then
+          table.insert(history, 1, args_string)
+          -- Keep only last 10 entries
+          while #history > 10 do
+            table.remove(history)
+          end
+          save_args_history(history)
+        end
+      end
+      return vim.split(args_string, " ")
+    end
+    table.insert(require("dap").configurations.python, {
+      name = "Python Debugger: Current File (Args, History)",
+      type = "debugpy",
+      request = "launch",
+      python = "{workspaceFolder}/venv/bin/python", -- NOTE: when running debugger, launch nvim from same directory as venv
+      program = "${file}",
+      args = get_args,
+      cwd = "${workspaceFolder}",
+    })
     -- Install golang specific config
     require("dap-go").setup({
       dap_configurations = {

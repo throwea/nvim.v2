@@ -100,3 +100,9 @@ vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, si
 
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd([[cab cc CodeCompanion]])
+
+-- vim.keymap.set("i", "<C-r>", function()
+--   local user_input = vim.fn.input("Enter input: ")
+--   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+--   vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, { "_{" .. user_input .. "}" })
+-- end)
