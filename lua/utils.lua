@@ -1,6 +1,9 @@
 -- NOTE:
 --  - In lua, they don't support private and public methods. However, you can simulate this by defining local functions at the top and object/table methods at the bottom.
 --  - An even easier way is to forward declare the private methods at the top. That way you can reference the method before defining it
+--  - On imports: in lua you define "modules" (file) inside a package (directory). If you want to import a file from the module you use require("package.module_name")
+--      - In neovim, the convention is to put your lua modules in ~/.config/nvim/lua/ so that init.lua and other config files are seperate from from Lua Modules
+--      - Modules in lua are similar to python packages. In this case, we have a lua mod
 
 local utils = {} -- Defining an object to hold our functions
 -- PRIVATE METHODS
