@@ -82,9 +82,7 @@ end)
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 map("t", "<Esc><Esc>", "<C-\\><C-n>:q<CR>", { desc = "Exit terminal mode" })
-map("n", "<leader>lg", function()
-  Snacks.lazygit.open()
-end)
+map("n", "<leader>lg", "<cmd>LazyGit<cr>")
 map("n", "<leader>p", function()
   Snacks.picker.git_files()
 end, { desc = "Open Git files" })
