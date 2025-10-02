@@ -149,9 +149,16 @@ return {
       name = "Python Debugger: Current File (Args, History)",
       type = "debugpy",
       request = "launch",
+      -- TODO: make a util here for getting the environment python path
       python = "${workspaceFolder}/venv/bin/python", -- NOTE: when running debugger, launch nvim from same directory as venv
       program = "${file}",
-      args = utils.get_args(vim.env.HOME .. "${workspaceFolder}/.debug/args_history.txt"),
+      args = function()
+        local cmd_line_args = utils.get_python_args(vim.env.HOME .. "${workspaceFolder}/.debug/args_history.txt")
+        if cmd_line_args == nil then
+          return ""
+        end
+        return cmd_line_args
+      end,
       cwd = "${workspaceFolder}",
     })
     -- Install golang specific config

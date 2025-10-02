@@ -8,33 +8,12 @@
 local utils = {} -- Defining an object to hold our functions
 -- PRIVATE METHODS
 -- NOTE: forward declaring these methods here so I can reference them before defining them
-local save_args_history_python, load_args_history
-
--- Save debugger command args to history file
--- @param history: table of strings representing previous command line args
--- @param args history file: (string) path to history file
-save_args_history_python = function(history, args_history_file)
-  local f = io.open(args_history_file, "w")
-  if not f then
-    vim.notify("failed to open file for writing: " .. args_history_file, vim.log.level.ERROR)
-    return
-  end
-  local commandMap = {}
-  for _, line in pairs(history) do
-    commandMap[line] = true
-  end
-  if commandMap then -- NOTE: similar syntax to python. if <obj> then do something will check for nil-ness
-    for _, line in ipairs(history) do
-      f:write(line .. "\n")
-    end
-    f:close()
-  end
-end
+local save_args_history_python, load_args_history_python
 
 -- Get list of previously used command line args or prompt user for new args
 -- @param args_history_file: (string) path to history file
-function utils.get_args(args_history_file)
-  local history = load_args_history(args_history_file)
+function utils.get_python_args(args_history_file)
+  local history = load_args_history_python(args_history_file)
   local choices = vim.deepcopy(history) -- TODO: why are we doing deepcopy here?
   table.insert(choices, "Enter new args") -- TODO why is this needed
   local choice = vim.fn.inputlist(choices)
@@ -57,7 +36,7 @@ end
 
 -- Read the previously used command line args from history
 -- @param args_history_file: path to file containing previously used command line args
-load_args_history = function(args_history_file)
+load_args_history_python = function(args_history_file)
   -- local args_history_file = vim.fn.stdpath("data") .. "/dap_python_args_history.txt" --NOTE: hardcoded for now... Can hardcode this in debug.lua
   local lines = {}
   local f = io.open(args_history_file, "r") -- f is of type (file*?) basically a pointer to a file (*) and can be nil (?)
@@ -77,7 +56,36 @@ load_args_history = function(args_history_file)
     end
     f:close()
   end
+  if lines == nil then
+    return ""
+  end
   return lines
+end
+
+-- Save debugger command args to history file
+-- @param history: table of strings representing previous command line args
+-- @param args history file: (string) path to history file
+save_args_history_python = function(history, args_history_file)
+  local f = io.open(args_history_file, "w")
+  if not f then
+    vim.notify("failed to open file for writing: " .. args_history_file, vim.log.level.ERROR)
+    return
+  end
+  local commandMap = {}
+  for _, line in pairs(history) do
+    commandMap[line] = true
+  end
+  if commandMap then -- NOTE: similar syntax to python. if <obj> then do something will check for nil-ness
+    for _, line in ipairs(history) do
+      f:write(line .. "\n")
+    end
+    f:close()
+  end
+end
+
+-- TODO: get the current workspace path and try to retreive the venv/bin/python and concatenate
+function get_python_venv()
+  return ""
 end
 
 --NOTE: Return the utils object which is a table containing our functions
