@@ -32,12 +32,48 @@ return {
     local snacks = require("snacks")
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
-      { "<F5>",      dap.continue,          desc = "Debug: Start/Continue" },
-      { "<F1>",      dap.step_into,         desc = "Debug: Step Into" },
-      { "<F2>",      dap.step_over,         desc = "Debug: Step Over" },
-      { "<F3>",      dap.step_out,          desc = "Debug: Step Out" },
-      { "<F4>",      dap.close,             desc = "Debug: Stop Process" },
-      -- { "<F6>",      snacks.picker(dap.list_breakpoints(false)), desc = "Debug: Stop Process" },
+      { "<F5>", dap.continue,  desc = "Debug: Start/Continue" },
+      { "<F1>", dap.step_into, desc = "Debug: Step Into" },
+      { "<F2>", dap.step_over, desc = "Debug: Step Over" },
+      { "<F3>", dap.step_out,  desc = "Debug: Step Out" },
+      { "<F4>", dap.close,     desc = "Debug: Stop Process" },
+      {
+        "<F6>",
+        function()
+          -- Get breakpoints from DAP
+          local breakpoints = dap.list_breakpoints
+          snacks.debug("Here are the list of breakpoints" .. breakpoints)
+
+          -- Transform breakpoints into picker items
+          local items = {}
+          for buf, buf_bps in pairs(breakpoints) do
+            snacks.debug("Buffer: " .. tostring(buf) .. ", buf_bps: " .. tostring(buf_bps))
+            local bufname = vim.api.nvim_buf_get_name(buf)
+            for _, bp in ipairs(buf_bps) do
+              table.insert(items, {
+                text = string.format("%s:%d", bufname, bp.line),
+                file = bufname,
+                lnum = bp.line,
+                col = 1,
+              })
+            end
+          end
+
+          -- Open picker with breakpoint items
+          snacks.picker({
+            items = items,
+            format = "file",  -- Use file formatter preset
+            preview = "file", -- Use file previewer preset
+            title = "Breakpoints",
+            confirm = function(picker, item)
+              if item then
+                vim.cmd(string.format("edit +%d %s", item.lnum, item.file))
+              end
+            end,
+          })
+        end,
+        desc = "Debug: List Breakpoints"
+      },
       { "<F8>",      dap.restart_frame,     desc = "Debug: Stop Process" },
       { "<leader>b", dap.toggle_breakpoint, desc = "Debug: Toggle Breakpoint" },
       {
