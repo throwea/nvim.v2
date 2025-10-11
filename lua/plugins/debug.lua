@@ -41,13 +41,16 @@ return {
         "<F6>",
         function()
           -- Get breakpoints from DAP
-          local breakpoints = dap.list_breakpoints
-          snacks.debug("Here are the list of breakpoints" .. breakpoints)
+          local breakpoints = dap.list_breakpoints()
+          if breakpoints == nil then
+            snacks.notify.warn("No breakpoints set")
+          end
+          snacks.notify.warn("Here are the list of breakpoints" .. breakpoints)
 
           -- Transform breakpoints into picker items
           local items = {}
           for buf, buf_bps in pairs(breakpoints) do
-            snacks.debug("Buffer: " .. tostring(buf) .. ", buf_bps: " .. tostring(buf_bps))
+            snacks.notify.warn(vim.inspect("Buffer: " .. tostring(buf) .. ", buf_bps: " .. tostring(buf_bps)))
             local bufname = vim.api.nvim_buf_get_name(buf)
             for _, bp in ipairs(buf_bps) do
               table.insert(items, {
