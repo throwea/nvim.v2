@@ -14,7 +14,8 @@ local save_args_history_python, load_args_history_python
 -- @param args_history_file: (string) path to history file
 function utils.get_python_args(args_history_file)
   local history = load_args_history_python(args_history_file)
-  local choices = vim.deepcopy(history) -- TODO: why are we doing deepcopy here?
+  local choices = vim.deepcopy(history)   -- TODO: why are we doing deepcopy here?
+
   table.insert(choices, "Enter new args") -- TODO why is this needed
   local choice = vim.fn.inputlist(choices)
   local args_string

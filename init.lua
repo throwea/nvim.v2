@@ -32,8 +32,10 @@
 -- Need to learn how to use copilot more effectively. Still kinda slow with it
 --    - See how I can get agent mode working in codecompanion if it's even setup
 -- Make netrw open instead of lazy distro on startup
--- Nerd fonts collection https://www.nerdfonts.com/font-downloads
 -- Add a symlink for my work .zshrc so I have a copy. I did some cool stuff in it
+-- <leader>d (delete line) is slow in python
+-- Ruff and Pyright are both showing diagnostics
+-- Job still running error when I try to exit nvim
 --
 -- DONE:
 -- Fix readme file parsing. I always get errors when trying to open README files -> DONE
@@ -41,6 +43,7 @@
 -- Make stack trace links to files open neovim file instead of vscode -> DONE. Go to iterm2 -> profiles -> advanced -> semantic history -> Run coprocess $echo nvim \1:\2 -> This will make stack trace links open in neovim
 -- Disable warnings from LSP. Especially in Readme files -> Can use leader<ud>
 -- Find a way to automatically set dev proxy when I start tmux -> DONE. Don't need this. Can just make an alias that sets the proxy before hand. Works perfectly across tmux panes
+-- Nerd fonts collection https://www.nerdfonts.com/font-downloads
 --  Copilot running on personal and work machines
 --  Get nerd font and symbols on my mac
 -- create keymapping which shows a UI listing all of the git hunks that have not been stage -> DONE. <leader>gd
