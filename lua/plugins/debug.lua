@@ -32,13 +32,13 @@ return {
     local snacks = require("snacks")
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
-      { "<F5>", dap.continue, desc = "Debug: Start/Continue" },
-      { "<F1>", dap.step_into, desc = "Debug: Step Into" },
-      { "<F2>", dap.step_over, desc = "Debug: Step Over" },
-      { "<F3>", dap.step_out, desc = "Debug: Step Out" },
-      { "<F4>", dap.close, desc = "Debug: Stop Process" },
-      { "<F6>", snacks.picker(dap.list_breakpoints(false)), desc = "Debug: Stop Process" },
-      { "<F8>", dap.restart_frame, desc = "Debug: Stop Process" },
+      { "<F5>",      dap.continue,          desc = "Debug: Start/Continue" },
+      { "<F1>",      dap.step_into,         desc = "Debug: Step Into" },
+      { "<F2>",      dap.step_over,         desc = "Debug: Step Over" },
+      { "<F3>",      dap.step_out,          desc = "Debug: Step Out" },
+      { "<F4>",      dap.close,             desc = "Debug: Stop Process" },
+      -- { "<F6>",      snacks.picker(dap.list_breakpoints(false)), desc = "Debug: Stop Process" },
+      { "<F8>",      dap.restart_frame,     desc = "Debug: Stop Process" },
       { "<leader>b", dap.toggle_breakpoint, desc = "Debug: Toggle Breakpoint" },
       {
         "<leader>B",
@@ -103,21 +103,19 @@ return {
     -- Change breakpoint icons
     vim.api.nvim_set_hl(0, "DapBreak", { fg = "#e51400" })
     vim.api.nvim_set_hl(0, "DapStop", { fg = "#ffcc00" })
-    local breakpoint_icons = vim.g.have_nerd_font
-        and {
-          Breakpoint = "",
-          BreakpointCondition = "",
-          BreakpointRejected = "",
-          LogPoint = "",
-          Stopped = "",
-        }
-      or {
-        Breakpoint = "●",
-        BreakpointCondition = "⊜",
-        BreakpointRejected = "⊘",
-        LogPoint = "◆",
-        Stopped = "⭔",
-      }
+    local breakpoint_icons = vim.g.have_nerd_font and {
+      Breakpoint = "",
+      BreakpointCondition = "",
+      BreakpointRejected = "",
+      LogPoint = "",
+      Stopped = "",
+    } or {
+      Breakpoint = "●",
+      BreakpointCondition = "⊜",
+      BreakpointRejected = "⊘",
+      LogPoint = "◆",
+      Stopped = "⭔",
+    }
     for type, icon in pairs(breakpoint_icons) do
       local tp = "Dap" .. type
       local hl = (type == "Stopped") and "DapStop" or "DapBreak"
@@ -154,13 +152,7 @@ return {
       -- TODO: make a util here for getting the environment python path
       python = "${workspaceFolder}/venv/bin/python", -- NOTE: when running debugger, launch nvim from same directory as venv
       program = "${file}",
-      args = function()
-        local cmd_line_args = utils.get_python_args(vim.env.HOME .. "${workspaceFolder}/.debug/args_history.txt")
-        if cmd_line_args == nil then
-          return ""
-        end
-        return cmd_line_args
-      end,
+      args = { "test" },
       cwd = "${workspaceFolder}",
     })
     -- Install golang specific config
