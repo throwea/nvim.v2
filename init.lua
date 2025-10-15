@@ -31,6 +31,8 @@
 -- Job still running error when I try to wqa. Suspect it's the formatting on save
 -- Create notes repo and install a markdown plugin which exports to obsidian so I can get the foam graph
 -- Find a way to get PR notes directly into my editor
+--  - I can use the following github command:
+--    - gh api repos/:owner/:repo/pulls/1/comments --paginate \ jq '.[] | {path, line, author: .user.login, body}'  --jq '.[] | {path, line, author: .user.login, body}'
 --
 --
 -- DONE:

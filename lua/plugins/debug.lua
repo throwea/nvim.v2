@@ -5,7 +5,7 @@
 -- Primarily focused on configuring the debugger for Go, but can
 -- be extended to other languages as well. That's why it's called
 -- kickstart.nvim and not kitchen-sink.nvim ;)
-local utils = require("utils")
+local utils = require("debug_utils")
 
 return {
   -- NOTE: Yes, you can install new plugins here!
@@ -31,12 +31,12 @@ return {
     local dapui = require("dapui")
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
-      { "<F5>", dap.continue, desc = "Debug: Start/Continue" },
-      { "<F1>", dap.step_into, desc = "Debug: Step Into" },
-      { "<F2>", dap.step_over, desc = "Debug: Step Over" },
-      { "<F3>", dap.step_out, desc = "Debug: Step Out" },
-      { "<F4>", dap.close, desc = "Debug: Stop Process" },
-      { "<F8>", dap.restart_frame, desc = "Debug: Stop Process" },
+      { "<F5>",      dap.continue,          desc = "Debug: Start/Continue" },
+      { "<F1>",      dap.step_into,         desc = "Debug: Step Into" },
+      { "<F2>",      dap.step_over,         desc = "Debug: Step Over" },
+      { "<F3>",      dap.step_out,          desc = "Debug: Step Out" },
+      { "<F4>",      dap.close,             desc = "Debug: Stop Process" },
+      { "<F8>",      dap.restart_frame,     desc = "Debug: Stop Process" },
       { "<leader>b", dap.toggle_breakpoint, desc = "Debug: Toggle Breakpoint" },
       {
         "<leader>B",
@@ -109,13 +109,13 @@ return {
           LogPoint = "",
           Stopped = "",
         }
-      or {
-        Breakpoint = "●",
-        BreakpointCondition = "⊜",
-        BreakpointRejected = "⊘",
-        LogPoint = "◆",
-        Stopped = "⭔",
-      }
+        or {
+          Breakpoint = "●",
+          BreakpointCondition = "⊜",
+          BreakpointRejected = "⊘",
+          LogPoint = "◆",
+          Stopped = "⭔",
+        }
     for type, icon in pairs(breakpoint_icons) do
       local tp = "Dap" .. type
       local hl = (type == "Stopped") and "DapStop" or "DapBreak"
