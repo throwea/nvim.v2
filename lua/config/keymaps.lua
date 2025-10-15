@@ -104,3 +104,26 @@ vim.cmd([[cab cc CodeCompanion]])
 --   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
 --   vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, { "_{" .. user_input .. "}" })
 -- end)
+
+local function filetype_map(ft, mode, lhs, rhs, opts)
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = ft,
+    callback = function()
+      opts = vim.tbl_extend("force", { noremap = true, silent = true, buffer = true }, opts or {})
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end,
+  })
+end
+-- Telekasten keymaps
+-- Launch panel if nothing is typed after <leader>z
+filetype_map("n", "<leader>z", "<cmd>Telekasten panel<CR>")
+
+filetype_map("markdown", "n", "<leader>zf", "<cmd>Telekasten find_notes<CR>")
+filetype_map("markdown", "n", "<leader>zg", "<cmd>Telekasten search_notes<CR>")
+filetype_map("markdown", "n", "<leader>zd", "<cmd>Telekasten goto_today<CR>")
+filetype_map("markdown", "n", "<leader>zz", "<cmd>Telekasten follow_link<CR>")
+filetype_map("markdown", "n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
+filetype_map("markdown", "n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>")
+filetype_map("markdown", "n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>")
+filetype_map("markdown", "n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>")
+filetype_map("markdown", "i", "[[", "<cmd>Telekasten insert_link<CR>")
