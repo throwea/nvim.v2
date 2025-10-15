@@ -30,7 +30,7 @@
 -- Fix WSL loading non ubuntu window on startup
 -- Job still running error when I try to wqa. Suspect it's the formatting on save
 -- Create notes repo and install a markdown plugin which exports to obsidian so I can get the foam graph
--- Find a way to get PR notes directly into my editor
+-- Find a way to get PullRequest notes directly into my editor
 --
 --
 -- DONE:
