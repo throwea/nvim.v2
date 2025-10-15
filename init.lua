@@ -1,10 +1,6 @@
 --[[ TODO
--- Find way to turn off LSP. At least turn off Golang LSP
--- Refine my neovim setup for react. The formatting is messed up and I need to get better suggestions, typechecks, etc
 -- Create directory for my secrets and establish a symlink from config file to actual secret
 -- Start scripting in bash. Make utility scripts. It takes way too long to get my applications set up the way I want them
--- Add function folding and collapsing https://www.jmaguire.tech/posts/treesitter_folding/
--- Disable dapui console in the debugger. It's not doing anything
 -- Add a bash function which pip installs and saves to requirements.txt in venv file
 -- Find way to list all of the breakpoints. Might be able to use quickfix list
 -- install neorg for better notetaking
@@ -12,9 +8,9 @@
 -- get a jupyter notebook alternative installed through neovim
 -- use vim be good and practice
 --    - Get better at relative line jumps
---    - Improve on forward and backward jumps
 -- create a bash script that will completely install all the dev dependencies needed to get started
 --  - need to figure out how to deal with git submodules and worktrees
+--  - Add a symlink for my work .zshrc so I have a copy. I did some cool stuff in it. **Seperate by branch**
 --  - create something like from folke -> https://github.com/folke/dot/tree/master/nvim
 --  - add .txt file explaining everything I need to do to get everything up and running
 --  - create a gitrepo around my config
@@ -24,16 +20,18 @@
 -- find helpful keymaps for lsp. Especially one which jumps forward and backwards to different funcitons --> can use <leader>ss
 -- Learn basic syntax of lua
 ------ deubgging lua files https://zignar.net/2023/06/10/debugging-lua-in-neovim/
--- https://www.youtube.com/watch?v=-ybCiHPWKNA 1:00:00
--- package/plugin management https://www.youtube.com/watch?v=-ybCiHPWKNA&t=1557s
--- lazy git is busted. Just use as plugin like I did in old config
 -- extend the github command in command line and have it except pull request numbers to save me some clicks
 -- Need formatting for .tmpl and vars fileshttps://gecgithub01.walmart.com/SRE/production-playbooks/pull/48702
 -- Need to learn how to use copilot more effectively. Still kinda slow with it
 --    - See how I can get agent mode working in codecompanion if it's even setup
 -- Make netrw open instead of lazy distro on startup
 -- Nerd fonts collection https://www.nerdfonts.com/font-downloads
--- Add a symlink for my work .zshrc so I have a copy. I did some cool stuff in it
+-- <leader>d is slow on my mac when editing python files. Need to fix this
+-- Fix WSL loading non ubuntu window on startup
+-- Job still running error when I try to wqa. Suspect it's the formatting on save
+-- Create notes repo and install a markdown plugin which exports to obsidian so I can get the foam graph
+-- Find a way to get PR notes directly into my editor
+--
 --
 -- DONE:
 -- Fix readme file parsing. I always get errors when trying to open README files -> DONE
