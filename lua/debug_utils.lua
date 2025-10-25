@@ -14,21 +14,18 @@ local save_args_history_python, load_args_history_python
 -- @param args_history_file: (string) path to history file
 function utils.get_python_args(args_history_file)
   local history = load_args_history_python(args_history_file)
-  local choices = vim.deepcopy(history) -- TODO: why are we doing deepcopy here?
-  table.insert(choices, "Enter new args") -- TODO why is this needed
+  local choices = vim.list_extend({ "Enter new args" }, history)
   local choice = vim.fn.inputlist(choices)
+  
   local args_string
-  if choice > 0 and choice <= #history then
-    args_string = history[choice]
+  if choice > 1 and choice <= #choices then
+    args_string = history[choice - 1]
   else
     args_string = vim.fn.input("Args: ")
     if args_string ~= "" and not vim.tbl_contains(history, args_string) then
       table.insert(history, 1, args_string)
-      -- Keep only last 10 entries
-      while #history > 10 do
-        table.remove(history)
-      end
-      save_args_history_python(history)
+      history = vim.list_slice(history, 1, 10)
+      save_args_history_python(history, args_history_file)
     end
   end
   return vim.split(args_string, " ")
@@ -37,28 +34,24 @@ end
 -- Read the previously used command line args from history
 -- @param args_history_file: path to file containing previously used command line args
 load_args_history_python = function(args_history_file)
-  -- local args_history_file = vim.fn.stdpath("data") .. "/dap_python_args_history.txt" --NOTE: hardcoded for now... Can hardcode this in debug.lua
-  local lines = {}
-  local f = io.open(args_history_file, "r") -- f is of type (file*?) basically a pointer to a file (*) and can be nil (?)
+  local f = io.open(args_history_file, "r")
   if not f then
     f = io.open(args_history_file, "w")
-    -- If we fail again, then we need to notify and log
     if not f then
       vim.notify("Failed to create args file: " .. args_history_file, vim.log.levels.ERROR)
-      return
-    end
-  end
-  if f then
-    for line in f:lines() do
-      if line ~= "" then
-        table.insert(lines, line)
-      end
+      return {}
     end
     f:close()
+    return {}
   end
-  if lines == nil then
-    return ""
+  
+  local lines = {}
+  for line in f:lines() do
+    if line ~= "" then
+      table.insert(lines, line)
+    end
   end
+  f:close()
   return lines
 end
 
@@ -68,19 +61,14 @@ end
 save_args_history_python = function(history, args_history_file)
   local f = io.open(args_history_file, "w")
   if not f then
-    vim.notify("failed to open file for writing: " .. args_history_file, vim.log.level.ERROR)
+    vim.notify("failed to open file for writing: " .. args_history_file, vim.log.levels.ERROR)
     return
   end
-  local commandMap = {}
-  for _, line in pairs(history) do
-    commandMap[line] = true
+  
+  for _, line in ipairs(history) do
+    f:write(line .. "\n")
   end
-  if commandMap then -- NOTE: similar syntax to python. if <obj> then do something will check for nil-ness
-    for _, line in ipairs(history) do
-      f:write(line .. "\n")
-    end
-    f:close()
-  end
+  f:close()
 end
 
 -- TODO: get the current workspace path and try to retreive the venv/bin/python and concatenate
