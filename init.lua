@@ -17,9 +17,9 @@
 --  - find a way to include .zshrc, .tmux.conf and neovim config entirely inside a git repo so it can be version controlled
 --  - create bash script which installs all dev dependencies via homebrew
 --  - add executable script which will isntall all the dependencies I need to get started
--- find helpful keymaps for lsp. Especially one which jumps forward and backwards to different funcitons --> can use <leader>ss
+-- find helpful keymaps for lsp. Especially one which jumps forward and backwards to different functions --> can use <leader>ss
 -- Learn basic syntax of lua
------- deubgging lua files https://zignar.net/2023/06/10/debugging-lua-in-neovim/
+------ debugging lua files https://zignar.net/2023/06/10/debugging-lua-in-neovim/
 -- extend the github command in command line and have it except pull request numbers to save me some clicks
 -- Need formatting for .tmpl and vars fileshttps://gecgithub01.walmart.com/SRE/production-playbooks/pull/48702
 -- Need to learn how to use copilot more effectively. Still kinda slow with it
@@ -40,10 +40,6 @@
 -- Python formatting doesn't work on save, need to fix this -> DONE
 -- Make stack trace links to files open neovim file instead of vscode -> DONE. Go to iterm2 -> profiles -> advanced -> semantic history -> Run coprocess $echo nvim \1:\2 -> This will make stack trace links open in neovim
 -- Disable warnings from LSP. Especially in Readme files -> Can use leader<ud>
--- Find a way to automatically set dev proxy when I start tmux -> DONE. Don't need this. Can just make an alias that sets the proxy before hand. Works perfectly across tmux panes
---  Copilot running on personal and work machines
---  Get nerd font and symbols on my mac
--- create keymapping which shows a UI listing all of the git hunks that have not been stage -> DONE. <leader>gd
 -- ]]
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
