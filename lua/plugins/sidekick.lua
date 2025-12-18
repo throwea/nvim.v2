@@ -1,33 +1,27 @@
-disable_projects = {
-  "/home/saeruig/Development/leetcode",
-  "/home/saeruig/Development/rust",
+local disable_projects = {
+  "/Users/elianahmar/Development/leetcode",
+  "/Users/elianahmar/Development/rust",
 }
+
+local function is_disabled_project()
+  local cwd = vim.fn.getcwd()
+  for _, path in ipairs(disable_projects) do
+    if cwd == path or cwd:find("^" .. path .. "/") then
+      return true
+    end
+  end
+  return false
+end
+
 return {
   {
     "folke/sidekick.nvim",
-    dependencies = {
-      "github/copilot.vim"
+    optional = true,
+    opts = {
+      suggestion = {
+        auto_trigger = not is_disabled_project(),
+        enabled = not is_disabled_project(),
+      },
     },
-    init = function()
-      local cwd = vim.fn.getcwd()
-      for _, path in ipairs(disable_projects) do
-        if cwd == path then
-          return
-        end
-      end
-      vim.lsp.enable("copilot")
-    end
   },
-  {
-    "zbirenbaum/copilot.lua",
-    enabled = function()
-      return vim.fn.getcwd() ~= "/home/saeruig/Development/leetcode"
-    end
-  },
-  {
-    "github/copilot.vim",
-    enabled = function()
-      return vim.fn.getcwd() ~= "/home/saeruig/Development/leetcode"
-    end
-  }
 }
