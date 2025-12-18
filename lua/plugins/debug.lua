@@ -70,6 +70,7 @@ return {
         "delve",
         "gopls",
         "debugpy",
+        "codelldb",
       },
     })
 
@@ -182,5 +183,28 @@ return {
         },
       },
     })
+
+    -- Install Rust specific config
+    dap.adapters.codelldb = {
+      type = "server",
+      port = "${port}",
+      executable = {
+        command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+        args = { "--port", "${port}" },
+      },
+    }
+
+    dap.configurations.rust = {
+      {
+        name = "Launch file",
+        type = "codelldb",
+        request = "launch",
+        program = function()
+          return vim.fn.getcwd() .. "/target/debug/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+        end,
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+      },
+    }
   end,
 }
