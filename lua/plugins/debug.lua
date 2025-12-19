@@ -204,6 +204,7 @@ return {
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
+        sourceLanguages = { "rust" },
       },
     }
   end,
