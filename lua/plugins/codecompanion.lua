@@ -1,6 +1,7 @@
 -- NOTE: Copilot only works on dev proxy
 return {
   "olimorris/codecompanion.nvim",
+  enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
