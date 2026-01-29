@@ -1,46 +1,51 @@
 return {
   "mistweaverco/kulala.nvim",
   opts = {
-    debug = true,
+    debug = 3, -- 0..3, per docs
+
+    scripts = {
+      node_path_resolver = function()
+        return vim.fn.exepath("node")
+      end,
+    },
+
+    ui = {
+      default_winbar_panes = { "body", "headers", "headers_body", "script_output" },
+      -- optional, but helpful while debugging:
+      disable_script_print_output = false,
+      report = {
+        show_script_output = true,
+      },
+    },
+
     global_keymaps = {
-      ["Send request"] = { -- sets global mapping
+      ["Send request"] = {
         "<leader>rr",
-        function()
-          require("kulala").run()
-        end,
-        mode = { "n" }, -- optional mode, default is n
-        desc = "Send request", -- optional description, otherwise inferred from the key
+        function() require("kulala").run() end,
+        mode = { "n" },
       },
       ["Send all requests"] = {
         "<leader>Ra",
-        function()
-          require("kulala").run_all()
-        end,
+        function() require("kulala").run_all() end,
         mode = { "n", "v" },
-        ft = "http", -- sets mapping for *.http files only
+        ft = "http",
       },
       ["Copy as cURL"] = {
         "<leader>co",
-        function()
-          require("kulala").copy()
-        end,
-        ft = { "http", "rest" }, -- sets mapping for specified file types
+        function() require("kulala").copy() end,
+        ft = { "http", "rest" },
       },
       ["Inspect current request"] = {
         "<leader>i",
-        function()
-          require("kulala").inspect()
-        end,
+        function() require("kulala").inspect() end,
         ft = { "http", "rest" },
       },
       ["Toggle headers/body"] = {
         "<leader>tv",
-        function()
-          require("kulala").toggle_view()
-        end,
+        function() require("kulala").toggle_view() end,
         ft = { "http", "rest" },
       },
-      ["Find request"] = false, -- set to false to disable
+      ["Find request"] = false,
     },
   },
 }
