@@ -51,3 +51,5 @@
 --  - change fonts in iterm https://www.nerdfonts.com/font-downloads
 
 require("config.lazy")
+
+
