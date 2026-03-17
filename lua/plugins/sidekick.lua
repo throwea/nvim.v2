@@ -16,6 +16,7 @@ end
 return {
   {
     "folke/sidekick.nvim",
+    enabled = false,
     optional = true,
     opts = function()
       return {
@@ -27,7 +28,7 @@ return {
     end,
     config = function(_, opts)
       require("sidekick").setup(opts)
-      
+
       -- Dynamically toggle suggestions when changing directories
       vim.api.nvim_create_autocmd("DirChanged", {
         callback = function()
