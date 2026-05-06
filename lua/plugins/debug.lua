@@ -30,12 +30,12 @@ return {
     local dapui = require("dapui")
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
-      { "<F5>", dap.continue, desc = "Debug: Start/Continue" },
-      { "<F1>", dap.step_into, desc = "Debug: Step Into" },
-      { "<F2>", dap.step_over, desc = "Debug: Step Over" },
-      { "<F3>", dap.step_out, desc = "Debug: Step Out" },
-      { "<F4>", dap.close, desc = "Debug: Stop Process" },
-      { "<F8>", dap.restart_frame, desc = "Debug: Stop Process" },
+      { "<F5>",      dap.continue,          desc = "Debug: Start/Continue" },
+      { "<F1>",      dap.step_into,         desc = "Debug: Step Into" },
+      { "<F2>",      dap.step_over,         desc = "Debug: Step Over" },
+      { "<F3>",      dap.step_out,          desc = "Debug: Step Out" },
+      { "<F4>",      dap.close,             desc = "Debug: Stop Process" },
+      { "<F8>",      dap.restart_frame,     desc = "Debug: Stop Process" },
       { "<leader>b", dap.toggle_breakpoint, desc = "Debug: Toggle Breakpoint" },
       {
         "<leader>B",
@@ -108,13 +108,13 @@ return {
           LogPoint = "",
           Stopped = "",
         }
-      or {
-        Breakpoint = "●",
-        BreakpointCondition = "⊜",
-        BreakpointRejected = "⊘",
-        LogPoint = "◆",
-        Stopped = "⭔",
-      }
+        or {
+          Breakpoint = "●",
+          BreakpointCondition = "⊜",
+          BreakpointRejected = "⊘",
+          LogPoint = "◆",
+          Stopped = "⭔",
+        }
     for type, icon in pairs(breakpoint_icons) do
       local tp = "Dap" .. type
       local hl = (type == "Stopped") and "DapStop" or "DapBreak"
@@ -186,8 +186,13 @@ return {
         -- On Windows delve must be run attached or it crashes.
         -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
         detached = vim.fn.has("win32") == 0,
-        build_flags = {
-          check_current_version = false,
+        -- build_flags = {
+        --   check_current_version = false,
+        -- },
+        args = {
+          "-r", "stdout:/dev/null",
+          "-r", "stderr:/dev/null",
+          "--log-dest=/dev/null",
         },
       },
     })

@@ -16,15 +16,16 @@
 -- }
 return {
   "github/copilot.vim",
+  enabled = false
   -- config = function()
   --   -- Disable copilot suggestions in the completion menu
   --   vim.g.copilot_no_tab_map = false
   --   vim.g.copilot_assume_mapped = true
   --   vim.g.copilot_tab_fallback = ""
-  --   
+  --
   --   -- Set up tab to accept copilot suggestions
   --   vim.api.nvim_set_keymap("i", "<Tab>", 'copilot#Accept("<Tab>")', { silent = true, expr = true, script = true })
-  --   
+  --
   --   -- Optional: Add keymaps for navigating between suggestions
   --   vim.api.nvim_set_keymap("i", "<M-]>", "<Plug>(copilot-next)", { silent = true })
   --   vim.api.nvim_set_keymap("i", "<M-[>", "<Plug>(copilot-previous)", { silent = true })
